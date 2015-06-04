@@ -3,4 +3,4 @@ spring:
     name: kungfudev-cloud-user
 
 server:
-  port: 0
+  port: 8080
