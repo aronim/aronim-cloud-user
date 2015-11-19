@@ -45,6 +45,8 @@ repositories {
 dependencies {
 
     compile("com.kungfudev.cloud:kungfudev-cloud-common:1.0-SNAPSHOT")
+    testCompile("com.kungfudev.cloud:kungfudev-cloud-common-tests:1.0-SNAPSHOT")
+
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
     compile("org.springframework.boot:spring-boot-starter-redis")
@@ -55,10 +57,7 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-eureka:1.0.1.RELEASE")
     compile("org.springframework.session:spring-session:1.0.1.RELEASE")
 
-    compile("org.scala-lang:scala-library:2.11.5")
-
-    testCompile("com.kungfudev.cloud:kungfudev-cloud-webjar:1.0-SNAPSHOT")
     testCompile("org.springframework.boot:spring-boot-starter-test")
-    testCompile("org.seleniumhq.selenium:selenium-java:2.45.0")
+    testCompile("org.seleniumhq.selenium:selenium-java:2.48.2")
     testCompile("org.assertj:assertj-core:3.0.0")
 }

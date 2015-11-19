@@ -49,15 +49,10 @@
 
                                 kdcUserLoginService
                                     .login($scope.command)
-                                    .then(function (user) {
-
+                                    .then(function () {
                                         $window.location.href = "/";
-                                        $rootScope.authenticated = user.authenticated;
-
                                     }, function (errorMessage) {
-
                                         $scope.errorMessage = errorMessage;
-                                        $rootScope.authenticated = false;
                                     });
                             };
                         }

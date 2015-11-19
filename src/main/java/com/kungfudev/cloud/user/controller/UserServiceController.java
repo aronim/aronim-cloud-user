@@ -1,5 +1,8 @@
-package com.kungfudev.cloud.user;
+package com.kungfudev.cloud.user.controller;
 
+import com.kungfudev.cloud.user.RegisterUserCommand;
+import com.kungfudev.cloud.user.User;
+import com.kungfudev.cloud.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;

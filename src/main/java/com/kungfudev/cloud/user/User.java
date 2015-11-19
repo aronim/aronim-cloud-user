@@ -1,6 +1,7 @@
 package com.kungfudev.cloud.user;
 
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * User: Kevin W. Sewell
@@ -18,6 +19,8 @@ public class User implements Serializable {
     private String emailAddress;
 
     private String encryptedPassword;
+
+    private Set<Role> roles;
 
     public User() {
     }
@@ -64,5 +67,13 @@ public class User implements Serializable {
 
     public void resetEncryptedPassword(String encryptedPassword) {
         setEncryptedPassword(encryptedPassword);
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }

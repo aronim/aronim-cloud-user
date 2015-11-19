@@ -4,11 +4,12 @@
     define(["jquery",
             "angular",
             "common/js/kdc.common",
-            "text!user/template/kdc.user.registration.html"],
+            "text!user/template/kdc.user.registration.html",
+            "user/js/kdc.user.login"],
 
         function ($, angular, kdc, userRegistationFormTemplate) {
 
-            var module = angular.module("kdc.user.registration", []);
+            var module = angular.module("kdc.user.registration", ["kdc.user.login"]);
 
             module.factory("kdcUserRegistrationService",
                 function ($q, $http) {
@@ -49,7 +50,7 @@
             );
 
             module.directive("kdcUserRegistrationForm",
-                function ($window, $log, kdcUserRegistrationService) {
+                function ($window, $log, kdcUserRegistrationService, kdcUserLoginService) {
                     return {
                         scope: {},
                         restrict: "E",
@@ -84,7 +85,15 @@
                                 kdcUserRegistrationService
                                     .register($scope.command)
                                     .then(function () {
-                                        $log.debug("Registration Successful!");
+
+                                        kdcUserLoginService
+                                            .login($scope.command)
+                                            .then(function () {
+                                                $window.location.href = "/";
+                                            }, function (errorMessage) {
+                                                $scope.errorMessage = errorMessage;
+                                            });
+
                                     }, function (errorMessage) {
                                         $scope.errorMessage = errorMessage;
                                     });

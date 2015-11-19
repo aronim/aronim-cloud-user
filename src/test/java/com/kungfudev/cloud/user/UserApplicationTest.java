@@ -1,5 +1,6 @@
 package com.kungfudev.cloud.user;
 
+import com.kungfudev.cloud.common.tests.SeleniumTest;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -18,7 +19,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Date: 2015-06-03
  * Time: 15h33
  */
-@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = TestUserApplication.class)
 @WebIntegrationTest(value = "server.port=9000")

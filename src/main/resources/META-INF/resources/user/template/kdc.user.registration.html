@@ -5,39 +5,34 @@
     <div class="alert alert-danger" ng-if="errorMessage">{{errorMessage}}</div>
 
     <form name="registrationForm"
+          class="kdc-registration"
           ng-submit="register(registrationForm)"
           novalidate="novalidate">
 
-        <div class="form-group">
-            <label for="input_register_first_name"
-                   class="control-label">First Name <span class="label label-primary">Required</span>
+        <div class="form-group kdc-first-name">
+            <label class="control-label">First Name <span class="label label-primary">Required</span>
             </label>
-            <input id="input_register_first_name"
-                   class="form-control"
+            <input class="form-control"
                    name="firstName"
                    type="text"
                    required="true"
                    ng-model="command.firstName"/>
         </div>
 
-        <div class="form-group">
-            <label for="input_register_last_name"
-                   class="control-label">Last Name <span class="label label-primary">Required</span>
+        <div class="form-group kdc-last-name">
+            <label class="control-label">Last Name <span class="label label-primary">Required</span>
             </label>
-            <input id="input_register_last_name"
-                   class="form-control"
+            <input class="form-control"
                    name="lastName"
                    type="text"
                    required="true"
                    ng-model="command.lastName"/>
         </div>
 
-        <div class="form-group">
-            <label for="input_register_email"
-                   class="control-label">Email Address <span class="label label-primary">Required</span>
+        <div class="form-group kdc-email-address">
+            <label class="control-label">Email Address <span class="label label-primary">Required</span>
             </label>
-            <input id="input_register_email"
-                   class="form-control"
+            <input class="form-control"
                    name="email_address"
                    type="email"
                    required="true"
@@ -45,18 +40,16 @@
                    ng-model-options="{ updateOn: 'blur' }"/>
         </div>
 
-        <div class="form-group">
-            <label for="input_register_password"
-                   class="control-label">Password <span class="label label-primary">Required</span>
+        <div class="form-group kdc-password">
+            <label class="control-label">Password <span class="label label-primary">Required</span>
             </label>
-            <input id="input_register_password"
-                   class="form-control"
+            <input class="form-control"
                    name="password"
                    type="password"
                    ng-model="command.password"/>
         </div>
 
-        <button class="btn btn-primary">Register</button>
+        <button class="btn btn-primary kdc-register">Register</button>
 
     </form>
 </div>
