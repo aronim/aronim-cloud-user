@@ -28,7 +28,6 @@ apply plugin: "net.saliman.properties"
 
 apply from: "${projectDir}/gradle/version.gradle"
 apply from: "${projectDir}/gradle/maven.gradle"
-apply from: "${projectDir}/gradle/publish.gradle"
 
 // Properties
 
@@ -46,8 +45,10 @@ task copyToLib(type: Copy) {
 
 dependencies {
 
-    compile("com.kungfudev.cloud:kungfudev-cloud-common:1.0.13")
-    testCompile("com.kungfudev.cloud:kungfudev-cloud-common-test:1.0.3")
+    compile("com.kungfudev.cloud:kungfudev-cloud-common:1.0.14")
+//    compile project(":kungfudev-cloud-common")
+    testCompile("com.kungfudev.cloud:kungfudev-cloud-common-test:1.0.4")
+//    testCompile project(":kungfudev-cloud-common-test")
 
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")

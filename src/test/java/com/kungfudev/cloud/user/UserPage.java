@@ -1,31 +1,40 @@
 package com.kungfudev.cloud.user;
 
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
+import static com.kungfudev.cloud.common.tests.KdcExpectedConditions.bootstrapComplete;
 
 public class UserPage {
 
-    @FindBy(xpath = "//table//td/p/a")
-    private List<WebElement> actuatorLinks;
+    @FindBy(css = "form.kdc-user-registration")
+    private WebElement registrationForm;
 
     private final WebDriver driver;
 
     public UserPage(WebDriver driver) {
+
         this.driver = driver;
+
+        new WebDriverWait(this.driver, 5000L)
+                .ignoring(WebDriverException.class)
+                .until(bootstrapComplete());
     }
 
-    public UserPageAssert assertThat() {
-        return new UserPageAssert(this);
+    public UserPage assertThatRegistrationFormExists() {
+
+        Assertions.assertThat(registrationForm).isNotNull();
+
+        return this;
     }
 
-    public String getTitle() {
-        return driver.getTitle();
-    }
+    public UserRegistrationForm registrationForm() {
 
-    public List<WebElement> getActuatorLinks() {
-        return actuatorLinks;
+        return PageFactory.initElements(driver, UserRegistrationForm.class);
     }
 }

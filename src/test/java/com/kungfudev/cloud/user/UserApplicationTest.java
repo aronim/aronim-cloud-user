@@ -1,17 +1,14 @@
 package com.kungfudev.cloud.user;
 
+import com.kungfudev.cloud.common.tests.WebDriverFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.net.URL;
 
 
 /**
@@ -22,7 +19,6 @@ import java.net.URL;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = TestUserApplication.class)
 @WebIntegrationTest(value = "server.port=8080")
-//@SeleniumTest(driver = ChromeDriver.class, baseUrl = "http://gocd-build-agent:8080/resources/user.html")
 public class UserApplicationTest {
 
     private WebDriver driver;
@@ -31,17 +27,36 @@ public class UserApplicationTest {
 
     @Before
     public void setUp() throws Exception {
+
+        driver = WebDriverFactory.init("/resources/user.html");
+
         userPage = PageFactory.initElements(driver, UserPage.class);
-        URL remoteAddress = new URL("http://hub:4444/wd/hub");
-        DesiredCapabilities desiredCapabilities = DesiredCapabilities.firefox();
-        driver = new RemoteWebDriver(remoteAddress, desiredCapabilities);
-        driver.get("http://gocd-agent-build:8080/resources/user.html");
     }
 
     @Test
-    public void containsActuatorLinks() {
-//        userPage.assertThat().
-//                .hasActuatorLink("autoconfig", "beans", "configprops", "dump", "env", "health", "info", "metrics", "mappings", "trace")
-//                .hasNoActuatorLink("shutdown");
+    public void containsActuatorLinks() throws Exception {
+        userPage.assertThatRegistrationFormExists();
+
+        userPage.registrationForm()
+                // First Name Input
+                .assertThatFirstNameControlExists()
+                .assertThatFirstNameLabelExists()
+                .assertThatFirstNameLabelEquals("First Name Required")
+                // Last Name Input
+                .assertThatLastNameControlExists()
+                .assertThatLastNameLabelExists()
+                .assertThatLastNameLabelEquals("Last Name Required")
+                // Email Address Input
+                .assertThatEmailAddressControlExists()
+                .assertThatEmailAddressLabelExists()
+                .assertThatEmailAddressLabelEquals("Email Address Required")
+                // Password Input
+                .assertThatPasswordControlExists()
+                .assertThatPasswordLabelExists()
+                .assertThatPasswordLabelEquals("Password Required")
+                // Register Button
+                .assertThatRegisterButtonExists();
     }
+
+
 }
