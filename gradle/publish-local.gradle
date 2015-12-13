@@ -1,0 +1,7 @@
+publishing {
+    repositories {
+        maven {
+            url "file://${System.properties["user.home"]}/.m2/repository"
+        }
+    }
+}

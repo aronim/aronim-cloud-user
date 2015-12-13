@@ -1,28 +1,37 @@
-// Build Script
+// Buildscript
 
 buildscript {
     ext {
         springBootVersion = "1.2.3.RELEASE"
     }
     repositories {
-        mavenLocal()
-        mavenCentral()
+        maven {
+            url nexusPublicRepositoryUrl
+            credentials {
+                username nexusDeploymentUsername
+                password nexusDeploymentPassword
+            }
+        }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "net.saliman:gradle-properties-plugin:1.4.4"
     }
 }
 
 // Plugins
 
 apply plugin: "java"
-apply plugin: 'scala'
+apply plugin: "scala"
 apply plugin: "spring-boot"
+apply plugin: "net.saliman.properties"
+
+apply from: "${projectDir}/gradle/version.gradle"
+apply from: "${projectDir}/gradle/maven.gradle"
+apply from: "${projectDir}/gradle/publish.gradle"
 
 // Properties
 
-group = "com.kungfudev.cloud"
-version = "1.0-SNAPSHOT"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -33,19 +42,12 @@ task copyToLib(type: Copy) {
     from configurations.runtime
 }
 
-// Repositories
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
-
 // Dependencies
 
 dependencies {
 
-    compile("com.kungfudev.cloud:kungfudev-cloud-common:1.0-SNAPSHOT")
-    testCompile("com.kungfudev.cloud:kungfudev-cloud-common-tests:1.0-SNAPSHOT")
+    compile("com.kungfudev.cloud:kungfudev-cloud-common:1.0.13")
+    testCompile("com.kungfudev.cloud:kungfudev-cloud-common-test:1.0.3")
 
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
@@ -56,6 +58,8 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-starter:1.0.1.RELEASE")
     compile("org.springframework.cloud:spring-cloud-starter-eureka:1.0.1.RELEASE")
     compile("org.springframework.session:spring-session:1.0.1.RELEASE")
+
+    compile("org.apache.httpcomponents:httpclient:4.5.1")
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("org.seleniumhq.selenium:selenium-java:2.48.2")
