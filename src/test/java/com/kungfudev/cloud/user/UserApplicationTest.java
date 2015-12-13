@@ -32,10 +32,10 @@ public class UserApplicationTest {
     @Before
     public void setUp() throws Exception {
         userPage = PageFactory.initElements(driver, UserPage.class);
-        URL remoteAddress = new URL("http://selenium.aronim.com");
+        URL remoteAddress = new URL("http://hub:4444/wd/hub");
         DesiredCapabilities desiredCapabilities = DesiredCapabilities.firefox();
         driver = new RemoteWebDriver(remoteAddress, desiredCapabilities);
-        driver.get("http://gocd-build-agent:8080/resources/user.html");
+        driver.get("http://gocd-agent-build:8080/resources/user.html");
     }
 
     @Test
