@@ -47,7 +47,7 @@ dependencies {
 
     compile("com.kungfudev.cloud:kungfudev-cloud-common:1.0.14")
 //    compile project(":kungfudev-cloud-common")
-    testCompile("com.kungfudev.cloud:kungfudev-cloud-common-test:1.0.4")
+    testCompile("com.kungfudev.cloud:kungfudev-cloud-common-test:1.0.5")
 //    testCompile project(":kungfudev-cloud-common-test")
 
     compile("org.springframework.boot:spring-boot-starter-actuator")
