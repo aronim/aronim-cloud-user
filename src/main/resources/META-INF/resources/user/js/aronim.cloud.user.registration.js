@@ -3,15 +3,15 @@
 
     define(["jquery",
             "angular",
-            "common/js/kdc.common",
-            "text!user/template/kdc.user.registration.html",
-            "user/js/kdc.user.login"],
+            "common/js/aronim.cloud.common",
+            "text!user/template/aronim.cloud.user.registration.html",
+            "user/js/aronim.cloud.user.login"],
 
-        function ($, angular, kdc, userRegistationFormTemplate) {
+        function ($, angular, aronimCloud, aronimCloudUserRegistationFormTemplate) {
 
-            var module = angular.module("kdc.user.registration", ["kdc.user.login"]);
+            var module = angular.module("aronim.cloud.user.registration", ["aronim.cloud.user.login"]);
 
-            module.factory("kdcUserRegistrationService",
+            module.factory("aronimCloudUserRegistrationService",
                 function ($q, $http) {
 
                     return {
@@ -49,16 +49,16 @@
                 }
             );
 
-            module.directive("kdcUserRegistrationForm",
-                function ($window, $log, kdcUserRegistrationService, kdcUserLoginService) {
+            module.directive("aronimCloudUserRegistrationForm",
+                function ($window, $log, aronimCloudUserRegistrationService, aronimCloudUserLoginService) {
                     return {
                         scope: {},
                         restrict: "E",
-                        template: userRegistationFormTemplate,
+                        template: aronimCloudUserRegistationFormTemplate,
                         controller: function ($scope) {
 
                             $scope.command = {
-                                id: kdc.common.guid()
+                                id: aronim.cloud.common.guid()
                             };
 
                             $scope.$watch("command.emailAddress", function(emailAddress) {
@@ -68,7 +68,7 @@
                                     return;
                                 }
 
-                                kdcUserRegistrationService
+                                aronimCloudUserRegistrationService
                                     .userWithEmailAddressExists(emailAddress)
                                     .then(function(userWithEmailAddressExists) {
 
@@ -82,11 +82,11 @@
 
                             $scope.register = function () {
 
-                                kdcUserRegistrationService
+                                aronimCloudUserRegistrationService
                                     .register($scope.command)
                                     .then(function () {
 
-                                        kdcUserLoginService
+                                        aronimCloudUserLoginService
                                             .login($scope.command)
                                             .then(function () {
                                                 $window.location.href = "/";

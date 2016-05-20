@@ -1,4 +1,4 @@
-package com.kungfudev.cloud.user;
+package com.aronim.cloud.user;
 
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static com.kungfudev.cloud.common.tests.KdcExpectedConditions.bootstrapComplete;
+import static com.aronim.cloud.common.tests.AronimCloudExpectedConditions.bootstrapComplete;
 
 /**
  * User: Kevin W. Sewell
@@ -16,31 +16,31 @@ import static com.kungfudev.cloud.common.tests.KdcExpectedConditions.bootstrapCo
  */
 public class UserRegistrationForm {
 
-    @FindBy(css = "form.kdc-user-registration div.kdc-first-name")
+    @FindBy(css = "form.ac-user-registration div.ac-first-name")
     private WebElement firstNameControl;
 
-    @FindBy(css = "form.kdc-user-registration div.kdc-first-name label")
+    @FindBy(css = "form.ac-user-registration div.ac-first-name label")
     private WebElement firstNameLabel;
 
-    @FindBy(css = "form.kdc-user-registration div.kdc-last-name")
+    @FindBy(css = "form.ac-user-registration div.ac-last-name")
     private WebElement lastNameControl;
 
-    @FindBy(css = "form.kdc-user-registration div.kdc-last-name label")
+    @FindBy(css = "form.ac-user-registration div.ac-last-name label")
     private WebElement lastNameLabel;
 
-    @FindBy(css = "form.kdc-user-registration div.kdc-email-address")
+    @FindBy(css = "form.ac-user-registration div.ac-email-address")
     private WebElement emailAddressControl;
 
-    @FindBy(css = "form.kdc-user-registration div.kdc-email-address label")
+    @FindBy(css = "form.ac-user-registration div.ac-email-address label")
     private WebElement emailAddressLabel;
 
-    @FindBy(css = "form.kdc-user-registration div.kdc-password")
+    @FindBy(css = "form.ac-user-registration div.ac-password")
     private WebElement passwordControl;
 
-    @FindBy(css = "form.kdc-user-registration div.kdc-password label")
+    @FindBy(css = "form.ac-user-registration div.ac-password label")
     private WebElement passwordLabel;
 
-    @FindBy(css = "form.kdc-user-registration button.kdc-register")
+    @FindBy(css = "form.ac-user-registration button.ac-register")
     private WebElement registerButton;
 
     private final WebDriver driver;

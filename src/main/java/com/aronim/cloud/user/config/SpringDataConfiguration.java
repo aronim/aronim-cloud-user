@@ -1,4 +1,4 @@
-package com.kungfudev.cloud.user.config;
+package com.aronim.cloud.user.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;

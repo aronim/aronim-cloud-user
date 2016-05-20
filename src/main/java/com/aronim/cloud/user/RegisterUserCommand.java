@@ -1,14 +1,13 @@
-package com.kungfudev.cloud.user;
+package com.aronim.cloud.user;
 
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * User: Kevin W. Sewell
  * Date: 2015-05-29
- * Time: 12h36
+ * Time: 13h52
  */
-public class User implements Serializable {
+public class RegisterUserCommand implements Serializable {
 
     private String id;
 
@@ -18,11 +17,9 @@ public class User implements Serializable {
 
     private String emailAddress;
 
-    private String encryptedPassword;
+    private String password;
 
-    private Set<Role> roles;
-
-    public User() {
+    public RegisterUserCommand() {
     }
 
     public String getId() {
@@ -57,23 +54,11 @@ public class User implements Serializable {
         this.emailAddress = emailAddress;
     }
 
-    public String getEncryptedPassword() {
-        return encryptedPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setEncryptedPassword(String encryptedPassword) {
-        this.encryptedPassword = encryptedPassword;
-    }
-
-    public void resetEncryptedPassword(String encryptedPassword) {
-        setEncryptedPassword(encryptedPassword);
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

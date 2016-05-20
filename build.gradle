@@ -45,10 +45,10 @@ task copyToLib(type: Copy) {
 
 dependencies {
 
-    compile("com.kungfudev.cloud:kungfudev-cloud-common:1.0.14")
-//    compile project(":kungfudev-cloud-common")
-    testCompile("com.kungfudev.cloud:kungfudev-cloud-common-test:1.0.5")
-//    testCompile project(":kungfudev-cloud-common-test")
+//    compile("com.aronim.cloud:aronim-cloud-common:1.0.14")
+    compile project(":aronim-cloud-common")
+//    testCompile("com.aronim.cloud:aronim-cloud-common-test:1.0.5")
+    testCompile project(":aronim-cloud-common-test")
 
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")

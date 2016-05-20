@@ -1,4 +1,4 @@
-package com.kungfudev.cloud.user;
+package com.aronim.cloud.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

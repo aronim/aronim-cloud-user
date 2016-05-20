@@ -1,4 +1,4 @@
-package com.kungfudev.cloud.user;
+package com.aronim.cloud.user;
 
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
@@ -8,11 +8,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static com.kungfudev.cloud.common.tests.KdcExpectedConditions.bootstrapComplete;
+import static com.aronim.cloud.common.tests.AronimCloudExpectedConditions.bootstrapComplete;
 
 public class UserPage {
 
-    @FindBy(css = "form.kdc-user-registration")
+    @FindBy(css = "form.ac-user-registration")
     private WebElement registrationForm;
 
     private final WebDriver driver;

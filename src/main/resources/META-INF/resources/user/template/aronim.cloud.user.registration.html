@@ -5,11 +5,11 @@
     <div class="alert alert-danger" ng-if="errorMessage">{{errorMessage}}</div>
 
     <form name="registrationForm"
-          class="kdc-user-registration"
+          class="ac-user-registration"
           ng-submit="register(registrationForm)"
           novalidate="novalidate">
 
-        <div class="form-group kdc-first-name">
+        <div class="form-group ac-first-name">
             <label class="control-label">First Name <span class="label label-primary">Required</span>
             </label>
             <input class="form-control"
@@ -19,7 +19,7 @@
                    ng-model="command.firstName"/>
         </div>
 
-        <div class="form-group kdc-last-name">
+        <div class="form-group ac-last-name">
             <label class="control-label">Last Name <span class="label label-primary">Required</span>
             </label>
             <input class="form-control"
@@ -29,7 +29,7 @@
                    ng-model="command.lastName"/>
         </div>
 
-        <div class="form-group kdc-email-address">
+        <div class="form-group ac-email-address">
             <label class="control-label">Email Address <span class="label label-primary">Required</span>
             </label>
             <input class="form-control"
@@ -40,7 +40,7 @@
                    ng-model-options="{ updateOn: 'blur' }"/>
         </div>
 
-        <div class="form-group kdc-password">
+        <div class="form-group ac-password">
             <label class="control-label">Password <span class="label label-primary">Required</span>
             </label>
             <input class="form-control"
@@ -49,7 +49,7 @@
                    ng-model="command.password"/>
         </div>
 
-        <button class="btn btn-primary kdc-register">Register</button>
+        <button class="btn btn-primary ac-register">Register</button>
 
     </form>
 </div>

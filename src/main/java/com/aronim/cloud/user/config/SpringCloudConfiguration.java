@@ -1,4 +1,4 @@
-package com.kungfudev.cloud.user.config;
+package com.aronim.cloud.user.config;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;

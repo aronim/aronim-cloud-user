@@ -1,8 +1,8 @@
-package com.kungfudev.cloud.user.controller;
+package com.aronim.cloud.user.controller;
 
-import com.kungfudev.cloud.user.RegisterUserCommand;
-import com.kungfudev.cloud.user.User;
-import com.kungfudev.cloud.user.UserService;
+import com.aronim.cloud.user.RegisterUserCommand;
+import com.aronim.cloud.user.User;
+import com.aronim.cloud.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;

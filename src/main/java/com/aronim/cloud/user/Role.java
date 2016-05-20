@@ -1,4 +1,4 @@
-package com.kungfudev.cloud.user;
+package com.aronim.cloud.user;
 
 import java.io.Serializable;
 

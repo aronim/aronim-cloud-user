@@ -1,6 +1,6 @@
-package com.kungfudev.cloud.user;
+package com.aronim.cloud.user;
 
-import com.kungfudev.cloud.common.tests.WebDriverFactory;
+import com.aronim.cloud.common.tests.WebDriverFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

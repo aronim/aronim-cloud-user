@@ -1,4 +1,4 @@
-package com.kungfudev.cloud.user;
+package com.aronim.cloud.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
