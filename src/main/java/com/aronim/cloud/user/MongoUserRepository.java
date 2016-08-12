@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
@@ -14,16 +16,16 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
  * Time: 13h54
  */
 @Repository
-public class MongoUserRepository implements UserRepository {
-
+public class MongoUserRepository implements UserRepository
+{
     public static final String COLLECTION_NAME = "users";
 
     @Autowired
     private MongoTemplate mongoTemplate;
 
     @Override
-    public void save(User user) {
-
+    public void save(User user)
+    {
         Query query = new Query()
                 .addCriteria(where("_id").is(user.getId()));
 
@@ -37,8 +39,8 @@ public class MongoUserRepository implements UserRepository {
     }
 
     @Override
-    public User findByEmailAddress(String emailAddress) {
-
+    public User findByEmailAddress(String emailAddress)
+    {
         Query query = new Query()
                 .addCriteria(where("emailAddress").is(emailAddress));
 
@@ -46,11 +48,17 @@ public class MongoUserRepository implements UserRepository {
     }
 
     @Override
-    public Boolean userWithEmailAddressExists(String emailAddress) {
-
+    public Boolean userWithEmailAddressExists(String emailAddress)
+    {
         Query query = new Query()
                 .addCriteria(where("emailAddress").is(emailAddress));
 
         return mongoTemplate.exists(query, User.class, COLLECTION_NAME);
+    }
+
+    @Override
+    public List<User> findAll()
+    {
+        return mongoTemplate.findAll(User.class, COLLECTION_NAME);
     }
 }

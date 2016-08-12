@@ -10,15 +10,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.aronim.cloud.common.tests.AronimCloudExpectedConditions.bootstrapComplete;
 
-public class UserPage {
-
+public class UserPage
+{
     @FindBy(css = "form.ac-user-registration")
     private WebElement registrationForm;
 
     private final WebDriver driver;
 
-    public UserPage(WebDriver driver) {
-
+    public UserPage(WebDriver driver)
+    {
         this.driver = driver;
 
         new WebDriverWait(this.driver, 5000L)
@@ -26,15 +26,15 @@ public class UserPage {
                 .until(bootstrapComplete());
     }
 
-    public UserPage assertThatRegistrationFormExists() {
-
+    public UserPage assertThatRegistrationFormExists()
+    {
         Assertions.assertThat(registrationForm).isNotNull();
 
         return this;
     }
 
-    public UserRegistrationForm registrationForm() {
-
+    public UserRegistrationForm registrationForm()
+    {
         return PageFactory.initElements(driver, UserRegistrationForm.class);
     }
 }

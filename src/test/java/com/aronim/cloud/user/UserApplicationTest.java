@@ -6,8 +6,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
@@ -17,24 +19,27 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Time: 15h33
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = TestUserApplication.class)
-@WebIntegrationTest(value = "server.port=8080")
-public class UserApplicationTest {
-
+@SpringBootTest(classes = TestUserApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class UserApplicationTest
+{
     private WebDriver driver;
 
     private UserPage userPage;
 
-    @Before
-    public void setUp() throws Exception {
+    @LocalServerPort
+    private int port;
 
-        driver = WebDriverFactory.init("/resources/user.html");
+    @Before
+    public void setUp() throws Exception
+    {
+        driver = WebDriverFactory.init(port, "/resources/user.html");
 
         userPage = PageFactory.initElements(driver, UserPage.class);
     }
 
     @Test
-    public void containsActuatorLinks() throws Exception {
+    public void containsActuatorLinks() throws Exception
+    {
         userPage.assertThatRegistrationFormExists();
 
         userPage.registrationForm()
@@ -57,6 +62,4 @@ public class UserApplicationTest {
                 // Register Button
                 .assertThatRegisterButtonExists();
     }
-
-
 }

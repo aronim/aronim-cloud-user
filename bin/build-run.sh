@@ -3,4 +3,4 @@
 BASEDIR=$(dirname $0)
 . ${BASEDIR}/../../scripts/build-run.sh
 
-build-run ${BASEDIR} com.kungfudev.cloud.user.UserApplication
+build-run ${BASEDIR} com.aronim.cloud.user.UserApplication

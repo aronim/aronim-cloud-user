@@ -12,17 +12,18 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  */
 @Profile("cloud")
 @Configuration
-public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
-
+public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter
+{
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception
+    {
         http
                 .httpBasic()
                 .and()
                 .authorizeRequests()
                 .antMatchers("/resources/**").permitAll()
-                .antMatchers("/api/users/register").permitAll()
-                .antMatchers("/api/users/exists").permitAll()
+                .antMatchers("/api/users").permitAll()
+                .antMatchers("/api/users/**").permitAll()
                 .antMatchers("/internal/users/**").permitAll()
                 .anyRequest().authenticated()
                 .and()

@@ -1,3 +1,9 @@
+info:
+  app:
+    name: AronimCloudUserService
+    description: Aronim Cloud User Service
+    version: 1.0-SNAPSHOT
+
 spring:
   application:
     name: aronim-cloud-user

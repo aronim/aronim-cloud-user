@@ -13,9 +13,11 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @ComponentScan
 @SpringBootApplication
 @EnableMongoRepositories
-public class UserApplication {
-
-    public static void main(String[] args) {
+public class UserApplication
+{
+    public static void main(String[] args)
+    {
+        System.setProperty("spring.profiles.active", "cloud");
         SpringApplication.run(UserApplication.class);
     }
 }

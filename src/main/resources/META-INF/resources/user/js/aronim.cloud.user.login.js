@@ -10,10 +10,10 @@
 
             angular
                 .module("aronim.cloud.user.login", [])
-                .factory("aronimCloudUserLoginService", aronimCloudUserLoginService)
-                .directive("aronimCloudUserLoginForm", aronimCloudUserLoginForm);
+                .factory("acUserLoginService", acUserLoginService)
+                .directive("acUserLoginForm", acUserLoginForm);
 
-            function aronimCloudUserLoginService($q, $http, $window) {
+            function acUserLoginService($q, $http, $window) {
                 return {
                     login: function (command) {
 
@@ -35,13 +35,12 @@
                 };
             }
 
-            function aronimCloudUserLoginFormController ($scope, $window, aronimCloudUserLoginService) {
+            function acUserLoginFormController ($scope, $window, acUserLoginService) {
 
                 $scope.command = {};
 
                 $scope.login = function () {
-
-                    aronimCloudUserLoginService
+                    acUserLoginService
                         .login($scope.command)
                         .then(function () {
                             $window.location.href = "/";
@@ -51,12 +50,12 @@
                 };
             }
 
-            function aronimCloudUserLoginForm () {
+            function acUserLoginForm () {
                 return {
                     scope: {},
                     restrict: "E",
                     template: aronimCloudLoginTemplate,
-                    controller: aronimCloudUserLoginFormController
+                    controller: acUserLoginFormController
                 };
             }
         }

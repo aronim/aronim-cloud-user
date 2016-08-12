@@ -10,6 +10,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
  */
 @Configuration
 @EnableMongoRepositories
-public class SpringDataConfiguration {
-
+public class SpringDataConfiguration
+{
 }

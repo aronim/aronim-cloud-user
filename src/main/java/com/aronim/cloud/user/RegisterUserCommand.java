@@ -7,8 +7,8 @@ import java.io.Serializable;
  * Date: 2015-05-29
  * Time: 13h52
  */
-public class RegisterUserCommand implements Serializable {
-
+public class RegisterUserCommand implements Serializable
+{
     private String id;
 
     private String firstName;
@@ -19,46 +19,57 @@ public class RegisterUserCommand implements Serializable {
 
     private String password;
 
-    public RegisterUserCommand() {
+    public RegisterUserCommand()
+    {
     }
 
-    public String getId() {
+    public String getId()
+    {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(String id)
+    {
         this.id = id;
     }
 
-    public String getFirstName() {
+    public String getFirstName()
+    {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName)
+    {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
+    public String getLastName()
+    {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName)
+    {
         this.lastName = lastName;
     }
 
-    public String getEmailAddress() {
+    public String getEmailAddress()
+    {
         return emailAddress;
     }
 
-    public void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(String emailAddress)
+    {
         this.emailAddress = emailAddress;
     }
 
-    public String getPassword() {
+    public String getPassword()
+    {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password)
+    {
         this.password = password;
     }
 }

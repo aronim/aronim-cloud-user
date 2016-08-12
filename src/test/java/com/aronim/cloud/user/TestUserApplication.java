@@ -12,16 +12,17 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
  * Date: 2015-06-03
  * Time: 21h56
  */
-@ComponentScan(excludeFilters = @ComponentScan.Filter(type= FilterType.ASSIGNABLE_TYPE, value = UserApplication.class))
+@ComponentScan(excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = UserApplication.class))
 @SpringBootApplication
 @EnableMongoRepositories
 @EnableAutoConfiguration(exclude = {
         org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class,
-        org.springframework.boot.actuate.autoconfigure.ManagementSecurityAutoConfiguration.class
+        org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration.class
 })
-public class TestUserApplication {
-
-    public static void main(String[] args) {
+public class TestUserApplication
+{
+    public static void main(String[] args)
+    {
         SpringApplication.run(TestUserApplication.class);
     }
 }
