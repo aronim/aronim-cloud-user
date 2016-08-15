@@ -20,7 +20,7 @@ public class User implements Serializable
 
     private String encryptedPassword;
 
-    private Set<Role> roles;
+    private String organisationId;
 
     public User()
     {
@@ -79,15 +79,5 @@ public class User implements Serializable
     public void resetEncryptedPassword(String encryptedPassword)
     {
         setEncryptedPassword(encryptedPassword);
-    }
-
-    public Set<Role> getRoles()
-    {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles)
-    {
-        this.roles = roles;
     }
 }

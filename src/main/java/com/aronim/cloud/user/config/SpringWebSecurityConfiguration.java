@@ -12,7 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  */
 @Profile("cloud")
 @Configuration
-public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter
+public class SpringWebSecurityConfiguration extends WebSecurityConfigurerAdapter
 {
     @Override
     protected void configure(HttpSecurity http) throws Exception
@@ -21,10 +21,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/resources/**").permitAll()
-                .antMatchers("/api/users").permitAll()
-                .antMatchers("/api/users/**").permitAll()
-                .antMatchers("/internal/users/**").permitAll()
+                .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable()

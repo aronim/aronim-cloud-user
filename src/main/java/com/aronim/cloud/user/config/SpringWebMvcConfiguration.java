@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import javax.servlet.Filter;
 
 @Configuration
-public class SpringConfiguration extends WebMvcConfigurerAdapter
+public class SpringWebMvcConfiguration extends WebMvcConfigurerAdapter
 {
     @Bean
     public Filter shallowETagHeaderFilter()

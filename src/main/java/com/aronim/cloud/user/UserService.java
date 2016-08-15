@@ -43,6 +43,8 @@ public class UserService
         user.resetEncryptedPassword(password);
 
         userRepository.save(user);
+
+//        userRegisteredTopic.publish(user);
     }
 
     public User findByEmailAddress(String emailAddress)
