@@ -17,7 +17,7 @@ public class UserApplication
 {
     public static void main(String[] args)
     {
-        System.setProperty("spring.profiles.active", "cloud");
+//        System.setProperty("spring.profiles.active", "cloud");
         SpringApplication.run(UserApplication.class);
     }
 }

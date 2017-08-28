@@ -7,6 +7,9 @@ info:
 spring:
   application:
     name: aronim-cloud-user
-
+#  data:
+#    mongodb:
+#      username: test
+#      password: test
 server:
   port: 0
